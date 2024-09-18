@@ -240,7 +240,25 @@
       .timer-item .label {
         font-size: 0.9rem;
         text-transform: uppercase;
-      }
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .countdown h2 {
+          font-size: 2rem;
+        }
+        .timer-item {
+          padding: 0.5rem;
+          min-width: 70px;
+        }
+        .timer-item .number {
+          font-size: 2rem;
+        }
+        .timer-item .label {
+          font-size: 0.7rem;
+        }
+      }
+
       /* Sponsors styles */
       .sponsors {
         background-color: #1a1a1a;
@@ -358,20 +376,6 @@
       }
       /* Responsive design */
       @media (max-width: 768px) {
-        .countdown h2 {
-          font-size: 2rem;
-        }
-        .timer-item {
-          padding: 0.5rem;
-          min-width: 70px;
-        }
-        .timer-item .number {
-          font-size: 2rem;
-        }
-        .timer-item .label {
-          font-size: 0.7rem;
-        }
-      }
         .hero h1 {
           font-size: 2.5rem;
         }
@@ -381,10 +385,6 @@
         .events-grid {
           grid-template-columns: 1fr;
         }
-        
-        .timer-item {
-          min-width: 80px;
-        }
         .footer-content {
           flex-direction: column;
           align-items: center;
@@ -393,15 +393,15 @@
           text-align: center;
           margin-bottom: 2rem;
         }
-      
+      }
     </style>
   </head>
   <body>
     <header>
       <nav>
-        <a href="home.html" class="logo">TechFest</a>
+        <a href="index.html" class="logo">TechFest</a>
         <ul class="nav-links">
-          <li><a href="home.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="schedule.html">Schedule</a></li>
           <li><a href="contact.html">Contact</a></li>
