@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      src="https://kit.fontawesome.com/a54b9f4df2.js"
+      crossorigin="anonymous"
+    ></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechFest 2024 - Contact</title>
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #ffffff;
+        background-color: #121212;
+      }
+      a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      /* Header styles */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(18, 18, 18, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 5%;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #00ffff;
+      }
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+      .nav-links li {
+        margin-left: 1.5rem;
+      }
+      .nav-links li a:hover {
+        color: #00ffff;
+      }
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+      .hamburger i {
+        font-size: 1.5rem;
+        color: #00ffff;
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background-color: rgba(18, 18, 18, 0.9);
+          backdrop-filter: blur(10px);
+        }
+        .nav-links li {
+          margin: 1rem 0;
+          text-align: center;
+        }
+        .hamburger {
+          display: block;
+        }
+        .nav-active {
+          display: flex !important;
+        }
+      }
+
+      /* Hero section styles */
+      .hero {
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(209, 237, 237, 0.1) 0%,
+          rgba(1, 44, 44, 0) 70%
+        );
+        animation: rotate 10s linear infinite;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      /* Hero section styles */
+      .hero {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(0, 255, 255, 0.1) 0%,
+          rgba(0, 255, 255, 0) 70%
+        );
+        animation: rotate 20s linear infinite;
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .hero h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        z-index: 1;
+      }
+      .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        z-index: 1;
+      }
+
+      /* Contact form styles */
+      .contact {
+        background-color: #1a1a1a;
+        padding: 4rem 5%;
+      }
+      .contact h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: #00ffff;
+      }
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #2a2a2a;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #ffffff;
+      }
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #444;
+        background-color: #333;
+        color: #fff;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      .form-group textarea {
+        height: 150px;
+        resize: vertical;
+      }
+      .submit-btn {
+        background-color: #00ffff;
+        color: #121212;
+        border: none;
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        display: block;
+        width: 100%;
+      }
+      .submit-btn:hover {
+        background-color: #00cccc;
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #121212;
+        color: #ffffff;
+        text-align: center;
+        padding: 2rem 0;
+      }
+      .footer-content {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .footer-section {
+        margin-bottom: 1.5rem;
+      }
+      .footer-section h3 {
+        color: #00ffff;
+        margin-bottom: 1rem;
+      }
+      .footer-section ul {
+        list-style: none;
+      }
+      .footer-section ul li {
+        margin-bottom: 0.5rem;
+      }
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+      .social-icon {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-color: #00ffff;
+        color: #121212;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+      .social-icon:hover {
+        background-color: #00cccc;
+      }
+      .footer-bottom {
+        margin-top: 2rem;
+        padding-top: 1rem;
+        border-top: 1px solid #333;
+      }
+      canvas {
+        display: block;
+      }
+      #hero-slider {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 1;
+        padding: 3rem 0 0;
+      }
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1.2rem;
+        }
+        .contact {
+          padding: 2rem 5%;
+        }
+        .contact-form {
+          padding: 1.5rem;
+        }
+        .footer-content {
+          flex-direction: column;
+          align-items: center;
+        }
+        .footer-section {
+          text-align: center;
+          margin-bottom: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="home.html" class="logo">TechFest</a>
+        <ul class="nav-links">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="results.html">Results</a></li>
+        </ul>
+        <div class="hamburger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <canvas id="dotsCanvas"></canvas>
+        <section id="hero-slider">
+          <h1>Contact Us</h1>
+          <p>Get in touch with the TechFest team</p>
+        </section>
+      </section>
+
+      <section class="contact">
+        <h2>Send us a message</h2>
+        <form
+          action="https://formsubmit.co/67cf3c30bb3822c249faa8f29abb3c75"
+          method="POST"
+        >
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="results.html">Results</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/gecvirubbsr" class="social-icon"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a
+              href="https://x.com/gecbbsrofficial?t=BXxV0QEkKDJCcuOXQbjWpQ&s=08"
+              class="social-icon"
+              ><i class="fa-brands fa-x-twitter"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/gecbbsrofficial?igsh=MTQ5dWlyMmNwb2trNA=="
+              class="social-icon"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/school/gandhi-engineering-college-gec-bhubaneswar/"
+              class="social-icon"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>Email: info@techfest2024.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 TechFest. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const canvas = document.getElementById("dotsCanvas");
+      const ctx = canvas.getContext("2d");
+      let dots = [];
+      const mouse = { x: null, y: null };
+      const maxDots = 100;
+      const dotRadius = 2;
+      const connectionDistance = 100;
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      canvas.addEventListener("mousemove", (event) => {
+        mouse.x = event.x;
+        mouse.y = event.y;
+      });
+
+      class Dot {
+        constructor(x, y, dx, dy) {
+          this.x = x;
+          this.y = y;
+          this.dx = dx;
+          this.dy = dy;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, dotRadius, 0, Math.PI * 2, false);
+          ctx.fillStyle = "white";
+          ctx.fill();
+        }
+
+        update() {
+          if (this.x + dotRadius > canvas.width || this.x - dotRadius < 0) {
+            this.dx = -this.dx;
+          }
+          if (this.y + dotRadius > canvas.height || this.y - dotRadius < 0) {
+            this.dy = -this.dy;
+          }
+          this.x += this.dx;
+          this.y += this.dy;
+          this.draw();
+        }
+      }
+
+      function init() {
+        dots = [];
+        for (let i = 0; i < maxDots; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const dx = (Math.random() - 0.5) * 2;
+          const dy = (Math.random() - 0.5) * 2;
+          dots.push(new Dot(x, y, dx, dy));
+        }
+      }
+
+      function connectDots() {
+        for (let i = 0; i < dots.length; i++) {
+          for (let j = i + 1; j < dots.length; j++) {
+            const distance = Math.hypot(
+              dots[i].x - dots[j].x,
+              dots[i].y - dots[j].y
+            );
+            if (distance < connectionDistance) {
+              ctx.beginPath();
+              ctx.moveTo(dots[i].x, dots[i].y);
+              ctx.lineTo(dots[j].x, dots[j].y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${
+                1 - distance / connectionDistance
+              })`;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function animate() {
+        requestAnimationFrame(animate);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        dots.forEach((dot) => dot.update());
+        connectDots();
+      }
+
+      init();
+      animate();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+      // Three.js implementation for dynamic 3D background
+      let scene, camera, renderer, stars, starGeo;
+      const mouse = { x: 0, y: 0 };
+
+      function init() {
+        const canvas = document.getElementById("dotsCanvas");
+        renderer = new THREE.WebGLRenderer({ canvas: canvas });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        scene = new THREE.Scene();
+        camera = new THREE.PerspectiveCamera(
+          60,
+          window.innerWidth / window.innerHeight,
+          1,
+          1000
+        );
+        camera.position.z = 1;
+        camera.rotation.x = Math.PI / 2;
+
+        starGeo = new THREE.Geometry();
+        for (let i = 0; i < 6000; i++) {
+          let star = new THREE.Vector3(
+            Math.random() * 600 - 300,
+            Math.random() * 600 - 300,
+            Math.random() * 600 - 300
+          );
+          star.velocity = 0;
+          star.acceleration = 0.02;
+          starGeo.vertices.push(star);
+        }
+
+        let sprite = new THREE.TextureLoader().load(
+          "https://threejsfundamentals.org/threejs/resources/images/star.png"
+        );
+        let starMaterial = new THREE.PointsMaterial({
+          color: 0xaaaaaa,
+          size: 0.7,
+          map: sprite,
+        });
+
+        stars = new THREE.Points(starGeo, starMaterial);
+        scene.add(stars);
+
+        animate();
+      }
+
+      function animate() {
+        starGeo.vertices.forEach((p) => {
+          p.velocity += p.acceleration;
+          p.y -= p.velocity;
+
+          if (p.y < -200) {
+            p.y = 200;
+            p.velocity = 0;
+          }
+
+          // Update position based on mouse movement
+          p.x += (mouse.x - p.x) * 0.05;
+          p.y += (mouse.y - p.y) * 0.05;
+        });
+        starGeo.verticesNeedUpdate = true;
+        stars.rotation.y += 0.002;
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+
+      init();
+
+      window.addEventListener("resize", () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+
+      // Track mouse movement
+      window.addEventListener("mousemove", (event) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+      });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>    
+    <script>
+          $(document).ready(function () {
+            $(".hamburger").click(function () {
+              $(".nav-links").toggleClass("nav-active");
+            });
+          });
+        </script>
+  </body>
+</html>
