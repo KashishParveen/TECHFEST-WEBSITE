@@ -17,6 +17,7 @@
             padding: 1rem;
             background-color: #1a1a1a;
             border-radius: 8px;
+            position: relative;
         }
         h1 {
             color: #00ffff;
@@ -44,11 +45,12 @@
         .register-button {
             display: block;
             width: 100%;
-            padding: 0.75rem;
+            padding: 1rem;
             background-color: #00ffff;
             color: #121212;
             text-align: center;
             font-weight: bold;
+            font-size: 1.2rem;
             border-radius: 5px;
             text-decoration: none;
             transition: background-color 0.3s, transform 0.3s;
@@ -57,10 +59,73 @@
             background-color: #00cccc;
             transform: translateY(-3px);
         }
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .close-button::before,
+        .close-button::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 2px;
+            background-color: #ffffff;
+        }
+        .close-button::before {
+            transform: rotate(45deg);
+        }
+        .close-button::after {
+            transform: rotate(-45deg);
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        .popup-content {
+            text-align: center;
+        }
+        .popup-buttons {
+            margin-top: 1rem;
+        }
+        .popup-button {
+            margin: 0 0.5rem;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <button class="close-button" onclick="showPopup()"></button>
         <h1>Tech Expo</h1>
         <div class="event-image">
             <img src="image/techexpo.png" alt="Tech Expo Image">
@@ -80,5 +145,43 @@
         </p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjnnXWM2n5BYS9aU_nWZ3NEEKCiEj8LevZtKT2pwDv42ZrUg/viewform" class="register-button" target="_blank">Register Now</a>
     </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2>Are you sure you want to leave?</h2>
+            <p>You will be redirected to the event page.</p>
+            <div class="popup-buttons">
+                <button class="popup-button" onclick="goBack()">Yes, leave</button>
+                <button class="popup-button" onclick="hidePopup()">No, stay here</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function hidePopup() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function goBack() {
+            // Replace 'event-page.html' with the actual URL of your event page
+            window.location.href = 'events.html';
+        }
+
+        // Add hover effect to the register button
+        const registerButton = document.querySelector('.register-button');
+        registerButton.addEventListener('mouseover', () => {
+            registerButton.style.transform = 'translateY(-3px) scale(1.05)';
+        });
+        registerButton.addEventListener('mouseout', () => {
+            registerButton.style.transform = 'translateY(0) scale(1)';
+        });
+    </script>
 </body>
 </html>
