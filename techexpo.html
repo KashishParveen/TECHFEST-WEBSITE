@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Expo - TechFest 2024</title>
+    <title>Hackathon - TechFest 2024</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -18,6 +18,7 @@
             background-color: #1a1a1a;
             border-radius: 8px;
             position: relative;
+            animation: fadeIn 0.5s ease-in-out;
         }
         h1 {
             color: #00ffff;
@@ -36,15 +37,22 @@
             border-radius: 5px;
         }
         .event-details {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         .event-details h2 {
+            margin-bottom: 1rem;
             color: #00ffff;
-            margin-bottom: 0.5rem;
+        }
+        .coordinators {
+            margin-bottom: 1rem;
+        }
+        .coordinators p {
+            margin: 0.5rem 0;
         }
         .register-button {
             display: block;
             width: 96%;
+            margin-top: 2rem;
             padding: 1rem;
             background-color: #00ffff;
             color: #121212;
@@ -86,102 +94,53 @@
         .close-button::after {
             transform: rotate(-45deg);
         }
-        .popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #1a1a1a;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.5);
-            z-index: 1000;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .popup-content {
-            text-align: center;
-        }
-        .popup-buttons {
-            margin-top: 1rem;
-        }
-        .popup-button {
-            margin: 0 0.5rem;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            z-index: 999;
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 0.5rem;
+            }
+            .event-image {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <button class="close-button" onclick="showPopup()"></button>
-        <h1>Tech Expo</h1>
+        <button class="close-button" onclick="goBack()"></button>
+        <h1>Hackathon</h1>
         <div class="event-image">
-            <img src="image/techexpo.png" alt="Tech Expo Image">
+            <img src="image/hackathon.jpeg" alt="Hackathon Image">
         </div>
         <div class="event-details">
             <h2>Event Details</h2>
             <ul>
-                <li><strong>Coordinator (Teacher):</strong> Dr. Prakash Rao</li>
-                <li><strong>Coordinator (Student):</strong> Rahul Mehta</li>
-                <li><strong>Booth Size:</strong> 10x10 feet</li>
-                <li><strong>Date:</strong> September 29-30, 2024</li>
-                <li><strong>Venue:</strong> Exhibition Hall</li>
+                <li>Date: September 28-30, 2024</li>
+                <li>Venue: Innovation Hub</li>
+                <li>Team Size: 3-4 members</li>
             </ul>
         </div>
-        <p>
-            Showcase your innovations and connect with industry leaders. The Tech Expo is your opportunity to display your projects, network with professionals, and potentially find investors for your ideas.
-        </p>
+        <div class="coordinators">
+            <h2>Coordinators</h2>
+            <p><strong>Teacher Coordinator:</strong> Prof. M. Rao</p>
+            <p><strong>Student Coordinator:</strong> John Doe</p>
+        </div>
+        <div class="description">
+            <h2>Description</h2>
+            <p>Get ready for 48 hours of coding, collaboration, and creativity in our thrilling Hackathon event. This competition brings together developers, designers, and innovators to tackle real-world challenges through technology.</p>
+            <p>With opportunities for networking, teamwork, and showcasing your coding skills, the Hackathon offers a platform to create cutting-edge solutions that could shape the future. Are you up for the challenge?</p>
+        </div>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfjnnXWM2n5BYS9aU_nWZ3NEEKCiEj8LevZtKT2pwDv42ZrUg/viewform" class="register-button" target="_blank">Register Now</a>
     </div>
 
-    <div class="overlay" id="overlay"></div>
-    <div class="popup" id="popup">
-        <div class="popup-content">
-            <h2>Are you sure you want to leave?</h2>
-            <p>You will be redirected to the event page.</p>
-            <div class="popup-buttons">
-                <button class="popup-button" onclick="goBack()">Yes, leave</button>
-                <button class="popup-button" onclick="hidePopup()">No, stay here</button>
-            </div>
-        </div>
-    </div>
-
     <script>
-        function showPopup() {
-            document.getElementById('overlay').style.display = 'block';
-            document.getElementById('popup').style.display = 'block';
-        }
-
-        function hidePopup() {
-            document.getElementById('overlay').style.display = 'none';
-            document.getElementById('popup').style.display = 'none';
-        }
-
         function goBack() {
-            // Replace 'event-page.html' with the actual URL of your event page
             window.location.href = 'events.html';
         }
-
-        // Add hover effect to the register button
-        const registerButton = document.querySelector('.register-button');
-        registerButton.addEventListener('mouseover', () => {
-            registerButton.style.transform = 'translateY(-3px) scale(1.05)';
-        });
-        registerButton.addEventListener('mouseout', () => {
-            registerButton.style.transform = 'translateY(0) scale(1)';
-        });
     </script>
 </body>
 </html>
