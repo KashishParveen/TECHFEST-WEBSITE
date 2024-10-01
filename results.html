@@ -467,10 +467,50 @@
             },
           ],
         },
+        {
+          id: "aiworkshop",
+          name: "AI Workshop",
+          image: "image/aiworkshop.jpeg",
+          winners: [
+            { place: "1st", team: "Neural Ninjas", prize: "$3000" },
+            { place: "2nd", team: "Deep Dreamers", prize: "$2000" },
+            { place: "3rd", team: "AI Avengers", prize: "$1000" },
+          ],
+        },
+        {
+          id: "cybersecurity",
+          name: "Cybersecurity Challenge",
+          image: "image/cybersecurity.jpeg",
+          winners: [
+            { place: "1st", team: "Firewall Fighters", prize: "$4000" },
+            { place: "2nd", team: "Crypto Crusaders", prize: "$2500" },
+            { place: "3rd", team: "Secure Squad", prize: "$1500" },
+          ],
+        },
+        {
+          id: "iotshowcase",
+          name: "IoT Showcase",
+          image: "image/iot.jpeg",
+          winners: [
+            { place: "1st", project: "Smart City Grid", prize: "$5000" },
+            { place: "2nd", project: "Connected Health Monitor", prize: "$3000" },
+            { place: "3rd", project: "Intelligent Agriculture System", prize: "$2000" },
+          ],
+        },
+        {
+          id: "vrexperience",
+          name: "VR Experience",
+          image: "image/vr.jpeg",
+          winners: [
+            { place: "1st", project: "Virtual Classroom", prize: "$4500" },
+            { place: "2nd", project: "VR Therapy Solution", prize: "$3000" },
+            { place: "3rd", project: "Immersive Art Gallery", prize: "$1500" },
+          ],
+        },
       ];
-
+    
       const eventsContainer = document.getElementById("eventsContainer");
-
+    
       events.forEach((event) => {
         const eventElement = document.createElement("div");
         eventElement.className = "event";
@@ -480,9 +520,7 @@
                 </div>
                 <div class="event-content">
                     <h3>${event.name}</h3>
-                    <div class="view-winners" onclick="toggleWinners('${
-                      event.id
-                    }')">
+                    <div class="view-winners" onclick="toggleWinners('${event.id}')">
                         <span>View Winners</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
@@ -503,16 +541,12 @@
             `;
         eventsContainer.appendChild(eventElement);
       });
-
+    
       function toggleWinners(eventId) {
         const winnersElement = document.getElementById(`${eventId}-winners`);
-        const chevronIcon =
-          winnersElement.previousElementSibling.querySelector("i");
-
-        if (
-          winnersElement.style.display === "none" ||
-          winnersElement.style.display === ""
-        ) {
+        const chevronIcon = winnersElement.previousElementSibling.querySelector("i");
+    
+        if (winnersElement.style.display === "none" || winnersElement.style.display === "") {
           winnersElement.style.display = "block";
           winnersElement.classList.add("fade-in");
           chevronIcon.classList.replace("fa-chevron-down", "fa-chevron-up");
